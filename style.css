@@ -3,12 +3,13 @@
   padding: 0;
 }
 .modal {
+  height: 80%;
+  width: 80%;
   background: linear-gradient(#e0972a, #fff);
   box-shadow: 5px 5px 11px 0px #8FA6C1;
   padding: 1rem;
-  margin: 1rem;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction: column;
   gap: 1rem;
   border-radius: 0.3rem;
@@ -16,6 +17,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: modal-animation 2s 1s alternate infinite;
 }
 .x-btn {
   text-decoration: none;
@@ -28,8 +30,15 @@
   border-radius: 50%;
   box-shadow: 0.1rem 0.1rem 1rem 0.1rem #4c5d70;
   position: absolute;
-  top: -1rem;
-  right: -1rem;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  transition: 0.8s;
+}
+.x-btn:hover {
+  transform: scale(150%);
+  background-color: #fff;
+  color: #4c5d70;
 }
 h3 {
   font-family :'Times New Roman', Times, serif;
@@ -39,8 +48,11 @@ h3 {
   border-block-end: 0.1rem solid #8FA6C1;
   padding-block-end: 1rem;
 }
-p {
+.text {
   border-block-end: 0.1rem solid #8FA6C1;
+  overflow: auto;
+}
+p {
   padding-block-end: 1rem;
   letter-spacing: 0.1rem;
 }
@@ -52,10 +64,28 @@ p {
   border-radius: 0.5rem;
   width: 12rem;
   text-align: center;
+  transition: 0.8s;
 }
+.btn:hover {
+  background-color: #fff;
+  color: #4c5d70;
+}
+@keyframes modal-animation {
+  from {
+    background: linear-gradient(#e0972a, #fff);
+  }
+  to {
+    background: linear-gradient(#fff, #e0972a);
+  }
+}
+
 @media (min-width: 550px) {
   .modal {
     width: 80%;
+    height: auto;
+  }
+  .text {
+    overflow: auto;
   }
   p {
     font-size: 1.2rem;
